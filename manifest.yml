@@ -1,0 +1,9 @@
+---
+applications:
+  - name: calculator
+    path: build/libs/calculator.jar
+    routes:
+      - route: tommy.apps.evans.pal.pivotal.io
+    env:
+      WELCOME_MESSAGE: Hello from the review environment
+      JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'
