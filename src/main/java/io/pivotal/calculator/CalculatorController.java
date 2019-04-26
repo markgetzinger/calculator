@@ -1,43 +1,25 @@
 package io.pivotal.calculator;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+@Controller
 public class CalculatorController {
+    CalculatorOperations calcOps = new CalculatorOperations();
 
     @GetMapping("/")
-    public String sayHello() {
-        return "hello";
+    public String calcHome(Model model) {
+        model.addAttribute("calc", new Values());
+        return "calc";
     }
 
+    @PostMapping("/calc")
+    public String calcResults(@ModelAttribute Values values) {
+        values = calcOps.doMath(values);
+            return "result";
+    }
 
-
-//    @GetMapping("/add")
-//    public String addition(
-//            @RequestParam(value="param1", required=true) String param1,
-//            @RequestParam(value="param2", required=true) String param2){
-//        return String.valueOf(Double.valueOf(param1)+Double.valueOf(param2));
-//    }
-//    @GetMapping("/div")
-//    public String division(
-//            @RequestParam(value="param1", required=true) String param1,
-//            @RequestParam(value="param2", required=true) String param2){
-//        return String.valueOf(Double.valueOf(param1)/Double.valueOf(param2));
-//    }
-//    @GetMapping("/sub")
-//    public String subtraction(
-//            @RequestParam(value="param1", required=true) String param1,
-//            @RequestParam(value="param2", required=true) String param2){
-//        return String.valueOf(Double.valueOf(param1)-Double.valueOf(param2));
-//    }
-//    @GetMapping("/mult")
-//    public String multiplication(
-//            @RequestParam(value="param1", required=true) String param1,
-//            @RequestParam(value="param2", required=true) String param2){
-//        return String.valueOf(Double.valueOf(param1)*Double.valueOf(param2));
-//    }
 
 }

@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>result.html</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h2>Equation Result</h2>
+<p th:text="'First Number: ' + ${values.numOne}" />
+<p th:text="'Second Number: ' + ${values.numTwo}" />
+<p th:text="'Operation: ' + ${values.operation}" />
+<p th:text="'Result: ' + ${values.result}" />
+<button onclick="window.location.href = '/';">Click Here</button>
+<!--<a href="/calc">Submit another Equation</a>-->
+</body>
+</html>
