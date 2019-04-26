@@ -29,7 +29,8 @@ public class CalculatorControllerTest {
         //calculatorOperations = new CalculatorOperations();
         //MeterRegistry meterRegistry = mock(MeterRegistry.class);
 
-        calcOperations = mock(CalculatorInterfaceOperations.class);
+        //calcOperations = mock(CalculatorInterfaceOperations.class);
+        calculatorOperations = new CalculatorOperations();
         //controller = new CalculatorController(calcOperations);
 
 
@@ -38,7 +39,7 @@ public class CalculatorControllerTest {
     @Test
     public void testIsNumeric() throws Exception {
         String aNumber = "0.5";
-        System.out.println(calculatorOperations.isNumeric(aNumber));
+        System.out.println(aNumber);
         assertTrue(calculatorOperations.isNumeric(aNumber));
         System.out.println(aNumber);
         aNumber = "cat";
