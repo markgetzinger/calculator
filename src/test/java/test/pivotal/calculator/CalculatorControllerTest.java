@@ -30,7 +30,7 @@ public class CalculatorControllerTest {
         //MeterRegistry meterRegistry = mock(MeterRegistry.class);
 
         calcOperations = mock(CalculatorInterfaceOperations.class);
-        controller = new CalculatorController(calcOperations);
+        //controller = new CalculatorController(calcOperations);
 
 
         //controller = new CalculatorController(calcOperations);
@@ -84,21 +84,6 @@ public class CalculatorControllerTest {
         String operation = "+";
         Values values = new Values(numOne,numTwo,operation);
 
-
-
-        timeEntryId = 1L;
-        TimeEntry expectedResult = new TimeEntry(timeEntryId, projectId, userId, LocalDate.parse("2017-01-08"), 8);
-        doReturn(expectedResult)
-                .when(timeEntryRepository)
-                .create(any(TimeEntry.class));
-
-
-        ResponseEntity response = controller.create(timeEntryToCreate);
-
-
-        verify(timeEntryRepository).create(timeEntryToCreate);
-        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.CREATED);
-        assertThat(response.getBody()).isEqualTo(expectedResult);
     }
 
 
