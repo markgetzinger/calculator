@@ -1,6 +1,6 @@
 package io.pivotal.calculator;
 
-public class CalculatorOperations{
+public class CalculatorOperations implements CalculatorInterfaceOperations{
     public CalculatorOperations() {
     }
 
@@ -45,7 +45,6 @@ public class CalculatorOperations{
         }
         values.setResult("Invalid Input");
         return values;
-
     }
 
     public boolean operationValidation(String ops) {

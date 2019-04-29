@@ -19,9 +19,9 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 
-public class CalculatorControllerTest {
-    private CalculatorOperations calculatorOperations;
-    private CalculatorInterfaceOperations calcOperations;
+public class CalculatorOperationsTest {
+    //private CalculatorOperations calculatorOperations;
+    private CalculatorInterfaceOperations calculatorOperations;
     private CalculatorController controller;
 
     @Before
@@ -79,12 +79,22 @@ public class CalculatorControllerTest {
 
 
     @Test
-    public void testValueAddition() throws Exception {
+    public void testDoMath() throws Exception {
         String numOne = "5.3";
         String numTwo = "2.3";
         String operation = "+";
         Values values = new Values(numOne,numTwo,operation);
-
+        calculatorOperations.doMath(values);
+        assertEquals(values.getResult(),Double.toString(calculatorOperations.numberAddition(numOne,numTwo)));
+        values.setOperation("*");
+        calculatorOperations.doMath(values);
+        assertEquals(values.getResult(),Double.toString(calculatorOperations.numberMultiplication(numOne,numTwo)));
+        values.setOperation("-");
+        calculatorOperations.doMath(values);
+        assertEquals(values.getResult(),Double.toString(calculatorOperations.numberSubtraction(numOne,numTwo)));
+        values.setOperation("/");
+        calculatorOperations.doMath(values);
+        assertEquals(values.getResult(),Double.toString(calculatorOperations.numberDivision(numOne,numTwo)));
     }
 
 
